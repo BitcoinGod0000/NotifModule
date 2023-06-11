@@ -1,0 +1,78 @@
+
+local NotificationModule = Instance.new("ScreenGui")
+local NotifFrame = Instance.new("Frame")
+local NotifFrame2 = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Bottom = Instance.new("TextLabel")
+
+--Properties:
+
+NotificationModule.Name = "Notification Module"
+NotificationModule.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+NotificationModule.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+NotifFrame.Name = "NotifFrame"
+NotifFrame.Parent = NotificationModule
+NotifFrame.AnchorPoint = Vector2.new(1, 1)
+NotifFrame.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+NotifFrame.BorderColor3 = Color3.fromRGB(38, 38, 38)
+NotifFrame.Position = UDim2.new(1, 0, 1, 0)
+NotifFrame.Size = UDim2.new(0, 226, 0, 110)
+
+NotifFrame2.Name = "NotifFrame2"
+NotifFrame2.Parent = NotifFrame
+NotifFrame2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+NotifFrame2.BorderColor3 = Color3.fromRGB(53, 4, 51)
+NotifFrame2.Position = UDim2.new(0.0265486725, 0, 0.0454545468, 0)
+NotifFrame2.Size = UDim2.new(0, 214, 0, 100)
+
+Title.Name = "Title"
+Title.Parent = NotifFrame2
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Title.Position = UDim2.new(0.0294847433, 0, -0.13727273, 0)
+Title.Size = UDim2.new(0, 200, 0, 50)
+Title.Font = Enum.Font.Arcade
+Title.Text = "Title"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 24.000
+
+Bottom.Name = "Bottom"
+Bottom.Parent = NotifFrame2
+Bottom.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Bottom.BackgroundTransparency = 1.000
+Bottom.Position = UDim2.new(0.0327102803, 0, 0.370000005, 0)
+Bottom.Size = UDim2.new(0, 200, 0, 50)
+Bottom.Font = Enum.Font.Arcade
+Bottom.Text = "Bottom Text"
+Bottom.TextColor3 = Color3.fromRGB(255, 255, 255)
+Bottom.TextSize = 20.000
+
+-- Scripts:
+
+local function PCLQ_fake_script() -- Title.title 
+	local script = Instance.new('LocalScript', Title)
+
+	script.Parent.Text = NotifSettings.TitleText
+end
+coroutine.wrap(PCLQ_fake_script)()
+local function QYYA_fake_script() -- Bottom.title 
+	local script = Instance.new('LocalScript', Bottom)
+
+	script.Parent.Text = NotifSettings.BottomText
+end
+coroutine.wrap(QYYA_fake_script)()
+local function PLNOYA_fake_script() -- NotifFrame2.wait 
+	local script = Instance.new('LocalScript', NotifFrame2)
+
+	wait(NotifSettings.WaitTime)
+	script.Parent.Parent.Visible = false
+end
+coroutine.wrap(PLNOYA_fake_script)()
+local function XDJEXNY_fake_script() -- NotifFrame2.outline color 
+	local script = Instance.new('LocalScript', NotifFrame2)
+
+	script.Parent.BorderColor = NotifSettings.OutlineColor
+end
+coroutine.wrap(XDJEXNY_fake_script)()
