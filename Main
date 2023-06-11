@@ -22,7 +22,7 @@ NotifFrame.Size = UDim2.new(0, 226, 0, 110)
 NotifFrame2.Name = "NotifFrame2"
 NotifFrame2.Parent = NotifFrame
 NotifFrame2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-NotifFrame2.BorderColor3 = Color3.fromRGB(53, 4, 51)
+NotifFrame2.BorderColor3 = NotifSettings.OutlineColor
 NotifFrame2.Position = UDim2.new(0.0265486725, 0, 0.0454545468, 0)
 NotifFrame2.Size = UDim2.new(0, 214, 0, 100)
 
@@ -34,7 +34,7 @@ Title.BorderColor3 = Color3.fromRGB(255, 255, 255)
 Title.Position = UDim2.new(0.0294847433, 0, -0.13727273, 0)
 Title.Size = UDim2.new(0, 200, 0, 50)
 Title.Font = Enum.Font.Arcade
-Title.Text = "Title"
+Title.Text = NotifSettings.Title
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextSize = 24.000
 
@@ -45,24 +45,10 @@ Bottom.BackgroundTransparency = 1.000
 Bottom.Position = UDim2.new(0.0327102803, 0, 0.370000005, 0)
 Bottom.Size = UDim2.new(0, 200, 0, 50)
 Bottom.Font = Enum.Font.Arcade
-Bottom.Text = "Bottom Text"
+Bottom.Text = NotifSettings.BottomText
 Bottom.TextColor3 = Color3.fromRGB(255, 255, 255)
 Bottom.TextSize = 20.000
 
--- Scripts:
-
-local function PCLQ_fake_script() -- Title.title 
-	local script = Instance.new('LocalScript', Title)
-
-	script.Parent.Text = NotifSettings.TitleText
-end
-coroutine.wrap(PCLQ_fake_script)()
-local function QYYA_fake_script() -- Bottom.title 
-	local script = Instance.new('LocalScript', Bottom)
-
-	script.Parent.Text = NotifSettings.BottomText
-end
-coroutine.wrap(QYYA_fake_script)()
 local function PLNOYA_fake_script() -- NotifFrame2.wait 
 	local script = Instance.new('LocalScript', NotifFrame2)
 
@@ -70,9 +56,3 @@ local function PLNOYA_fake_script() -- NotifFrame2.wait
 	script.Parent.Parent.Visible = false
 end
 coroutine.wrap(PLNOYA_fake_script)()
-local function XDJEXNY_fake_script() -- NotifFrame2.outline color 
-	local script = Instance.new('LocalScript', NotifFrame2)
-
-	script.Parent.BorderColor = NotifSettings.OutlineColor
-end
-coroutine.wrap(XDJEXNY_fake_script)()
